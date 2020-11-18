@@ -61,4 +61,25 @@ this project is divided into following segments:-
 
 ### 5->Applying suitable machine learning Algorithm
 1. Logistic Regression
-*
+* train data accuracy:90.93851132686084%
+* test data accuracy:90.38461538461539%
+
+2. SVC algorithm
+* train data accuracy:96.44012944983819%
+* test data accuracy:92.30769230769231%
+
+3. KNN algorithm
+* train data accuracy:100%
+* test data accuracy:87.5%
+
+4. Naive Bayes Algorithm
+* train data accuracy:52.75080906148867%
+* test data accuracy:49.038461538461536%
+
+5. Decision Tree
+* train data accuracy:67.63754045307443%
+* test data accuracy:53.84615384615384%
+
+6. Random Forest Classifier
+* train data accuracy:99.02912621359223%
+* test data accuracy:81.73076923076923%
