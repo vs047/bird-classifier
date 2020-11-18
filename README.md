@@ -2,7 +2,7 @@
 
 # Important Points
 1-> Please download mysql for accessing this project.If you do not have mysql then you will not be able to access this prject.
-2->inside dist folder move the birdlogin folder in the path "C:\ProgramData\MySQL\MySQL Server 8.0\Data".
+2-> inside dist folder move the birdlogin folder in the path "C:\ProgramData\MySQL\MySQL Server 8.0\Data".
 
 this project allows the classification of birds on the basis of length and width of various bones.
 this project is divided into following segments:-
@@ -41,4 +41,23 @@ this project is divided into following segments:-
 * This dataset is taken from kaggle.com having one csv file with dimensions of 420 rows with 12 columns.
 * the 12 columns were named as Id,huml,humw,nlnal,ulnaw,feml,femw,tibl,tibw,tarl,tarw,type.
 * There are 6 types of birds in the dataset namely Swimming birds,Reptors,Wading birds,Terrestrial birds,Scansorial birds,Singing birds.
+* In these columns the number of non null values are 419.000000,419.000000,417.000000,418.000000,418.000000,419.000000,418.000000,419.000000,419.000000,419.000000 respectively.
+* Since the number of null values is very less so dropping of such rows is performed.
+* So the number of rows reduces to 413.
+
+### 2->finding  out dependent and independent variables
+* The main objective of this project is to identify the type of bird based on dimensions of bones.
+* So dependent variable is type while huml,humw,nlnal,ulnaw,feml,femw,tibl,tibw,tarl,tarw are dependent variables.
+
+### 3->Splitting data into test and train data
+* Here I  have split data into test and train data.
+* The data which is used to generate the model is called train data and the data  which is udes to test the model is called test data.
+* The ratio of test to train data is 25:75.Random sampling is not performed.
+
+### 4->Feature Scaling using StandardScaler
+* Feature scaling means that the value of features are scaled according to certain crietrion depending upon the the type of algorithm used.
+* In this case I have used Standard Scaler.
+* In standard Scaler we use normalized value given by the nirmal distribuion i.e (x-u)/sigma
+
+### 5->Applying suitable machine learning Algorithm
 
