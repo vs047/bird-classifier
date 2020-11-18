@@ -60,4 +60,5 @@ this project is divided into following segments:-
 * In standard Scaler we use normalized value given by the nirmal distribuion i.e (x-u)/sigma
 
 ### 5->Applying suitable machine learning Algorithm
-
+1. Logistic Regression
+*
