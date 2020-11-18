@@ -19,8 +19,8 @@ this project is divided into following segments:-
 3. relational database means the data inside the tables is connected with certain relations.
 4. Here i have created a table named as details with the schema described below:-
 
-|ID           |email      |password|
-|numeric      |varchar    |varchar |
+ |ID           |email      |password|
+ |numeric      |varchar    |varchar |
 
 5. The server is local host.
 6. Only basic queries like select,insert into,create table has been used for this project.
