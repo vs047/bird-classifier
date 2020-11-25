@@ -64,6 +64,7 @@ class UI:
 
         Button(self.window,text="Generate Model",fg="orange",bg="black",command=self.generatemodel,font=("Times New Roman",20)).place(relx=0.2,rely=0.8)
         Button(self.window,text="Predict Result",fg="orange",bg="black",command=self.predict,font=("Times New Roman",20)).place(relx=0.6,rely=0.8)
+        Button(self.window,text="Clear values",fg="orange",bg="black",command=self.reset,font=("Times New Roman",20)).place(relx=0.4,rely=0.9)
         if result==[]:
             messagebox.showerror("Error","No such account exist")
             choice=messagebox.askquestion("Action","Do you want to register")
@@ -79,6 +80,17 @@ class UI:
         except:
             pass
         self.window.mainloop()
+    def reset(self):
+        self.Humeruslength.set(0)
+        self.Humerusdiameter.set(0)
+        self.Ulnalength.set(0)
+        self.Ulnadiameter.set(0)
+        self.Femurlength.set(0)
+        self.Femurdiameter.set(0)
+        self.Tibiotarsuslength.set(0)
+        self.Tibiotarsusdiameter.set(0)
+        self.Tarsometatarsuslength.set(0)
+        self.Tarsometatarsusdiameter.set(0)    
     def generatemodel(self):
         data=pd.read_csv("dataset/bird.csv")
         data.dropna(inplace=True)
@@ -92,6 +104,10 @@ class UI:
     def predict(self):
         try:
             inputs=[self.Humeruslength.get(),self.Humerusdiameter.get(),self.Ulnalength.get(),self.Ulnadiameter.get(),self.Femurlength.get(),self.Femurdiameter.get(),self.Tibiotarsuslength.get(),self.Tibiotarsusdiameter.get(),self.Tarsometatarsuslength.get(),self.Tarsometatarsusdiameter.get()]
+            for i in inputs:
+                if i<0:
+                    messagebox.showerror("Fatal Error","dimensions cannot be negative")
+                    return 
             output=self.model.predict([inputs])
             cateogary={"SW":"Swimming birds","W":"Wading birds","T":"Terristrial birds","R":"Raptors","P":"Scansorial birds","SO":"Singing birds"}
             messagebox.showinfo("Result",f"The bird belongs to {cateogary[output[0]]} cateogary")
