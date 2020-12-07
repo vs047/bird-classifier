@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        @media (max-width: 650px) {
+            #alignment {
+                font-family: 'Times New Roman';
+                margin-left: 12%;
+                margin-right: 15%;
+                font-size: 150%;
+            }
+        }
+
+        @media (min-width:450px) {
+            #alignment {
+                font-family: 'Times New Roman';
+                margin-left: 30%;
+                font-size: 200%;
+            }
+        }
+
+        body {
+            background-color: blueviolet;
+        }
+
+        #alignment {
+            margin-left: 38%;
+            font-family: 'Times New Roman';
+            font-size: 200%;
+        }
+
+        #entries {
+
+            margin-top: 5%;
+            line-height: 2;
+            display: "inline-block";
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 120%;
+        }
+    </style>
+
+</head>
+
+<body class="container-fluid img-fluid">
+
+    <div class="background"></div>
+    <div id="alignment">
+        <h1>BIRD CLASSIFIER</h1>
+    </div>
+    {%if correct %}
+    <div class="alert alert-success" role="alert"> {{value}} </div>
+    {% endif %}
+
+    <div id="entries">
+        <form class="form-group" action='output' method="post">
+            {% csrf_token %}
+            <label class="control-label" for="entry1">Enter length of Humerus (in mm):</label> <input type="text"
+                name="hlength" class="form-control" id="entry1"> <br>
+            <label class="control-label" for="entry2">Enter diameter of Humerus (in mm):</label> <input type="text"
+                name="hdiameter" class="form-control" id="entry2"> <br>
+            <label class="control-label" for="entry3">Enter length of Ulna (in mm):</label> <input type="text"
+                name="ulength" class="form-control" id="entry3"> <br>
+            <label class="control-label" for="entry4">Enter diameter of Ulna (in mm): </label> <input type="text"
+                name="udiameter" class="form-control" id="entry4"> <br>
+            <label class="control-label" for="entry5">Enter length of Femur (in mm):</label> <input type="text"
+                name="flength" class="form-control" id="entry5"> <br>
+            <label class="control-label" for="entry6">Enter diameter of Femur (in mm):</label> <input type="text"
+                name="fdiameter" class="form-control" id="entry6"> <br>
+            <label class="control-label" for="entry7">Enter length of Tibiotarsus (in mm):</label> <input type="text"
+                name="tilength" class="form-control" id="entry7"> <br>
+            <label class="control-label" for="entry8">Enter diameter of Tibiotarsus (in mm):</label> <input type="text"
+                name="tidiameter" class="form-control"> <br>
+            <label class="control-label" for="entry9">Enter length of Tarsometatarsus (in mm):</label> <input
+                type="text" name="talength" class="form-control" id="entry9"><br>
+            <label class="control-label" for="entry10">Enter diameter of Tarsometatarsus (in mm): </label><input
+                type="text" name="tadiameter" class="form-control" id="entry10"><br>
+            <button type="reset" class="btn btn-secondary btn-lg">Reset values</button>
+            <button type="submit" class="btn btn-primary btn-lg">Show Output</button>
+            {%if error %}
+            <script>alert("Invalid values");</script>
+            {% endif %}
+        </form>
+    </div>
+</body>
+
+</html>
