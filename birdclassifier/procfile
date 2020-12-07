@@ -1,1 +1,0 @@
-web:gunicorn birdclassifier.wsgi --log-file -
