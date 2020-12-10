@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 COPY birdclassifier .
 
-CMD python manage.py runserver && gunicorn birdclassifier.wsgi --log-file -
+CMD python manage.py migrate && gunicorn birdclassifier.wsgi --log-file -
