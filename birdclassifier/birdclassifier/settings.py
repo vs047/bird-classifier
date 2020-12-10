@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'birdclassifier.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default':{'PASSWORD': os.environ["DATABASE_PASSWORD"},'HOST': os.environ.get("DATABASE_HOST", "localhost"),'PORT': '3306','ENGINE': 'django.db.backends.mysql','NAME':'database/db.sqlite3',
+    'default':{'PASSWORD': os.environ["DATABASE_PASSWORD"},'HOST': os.environ.get("DATABASE_HOST", "localhost"),'PORT': '3306','ENGINE': 'django.db.backends.mysql','NAME':'database/db.mysql',
     }
 }
 # Password validation
