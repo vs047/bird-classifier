@@ -31,6 +31,6 @@ urlpatterns = [
     path('download',views.download,name="download"),
     path('index',views.index,name="index"),
     path('output',views.showoutput,name="output"),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT}), 
+#     url(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT}), 
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT})
 ]
