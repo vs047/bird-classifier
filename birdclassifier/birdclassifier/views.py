@@ -13,12 +13,15 @@ def verification(request):
     password=request.POST.get("password")
     mydb=mysql.connector.connect(host='vs047-postgres-9300-production',user="root",password=os.environ["DATABASE_PASSWORD"],database="database")
     console=mydb.cursor()
-    console.execute("SELECT *  FROM details WHERE email=%s and password=%s",(userid,password))
-    result=console.fetchall()
-    if result==[]:
-        return render(request,"login.html",{"error":True,"value":"Invalid username and/or password"})
-    else:
-        return render(request,"selection.html")
+    try:
+        console.execute("SELECT *  FROM details WHERE email=%s and password=%s",(userid,password))
+        result=console.fetchall()
+        if result==[]:
+            return render(request,"login.html",{"error":True,"value":"Invalid username and/or password"})
+        else:
+            return render(request,"selection.html")
+    except:
+        console.execute("create table details ( ID decimal(10) primary key not null,email varchar(30),password varchar(20))")
 def entry(request):
     userid=request.POST.get("userid")
     password=request.POST.get("password")
