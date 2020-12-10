@@ -33,11 +33,11 @@ def entry(request):
         return render(request,"register.html",{"error":True,"value":"account already exist"})
     else:
         console.execute("SELECT MAX(ID) FROM details")
-        idno=console.fetchall()
-        if idno==[]:
-            console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(1,userid,password))    
-        else:
+        idno=console.fetchall()    
+        try:
             console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(int(idno[0][0])+1,userid,password))
+        except:
+            console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(1,userid,password))
         mydb.commit()
         return render(request,"login.html")
 def register(request):
