@@ -34,7 +34,10 @@ def entry(request):
     else:
         console.execute("SELECT MAX(ID) FROM details")
         idno=console.fetchall()
-        console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(int(idno[0][0])+1,userid,password))
+        if idno==None:
+            console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(1,userid,password))    
+        else:
+            console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(int(idno[0][0])+1,userid,password))
         mydb.commit()
         return render(request,"login.html")
 def register(request):
