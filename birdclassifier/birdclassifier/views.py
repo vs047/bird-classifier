@@ -34,7 +34,7 @@ def entry(request):
     else:
         console.execute("SELECT MAX(ID) FROM details")
         idno=console.fetchall()
-        if idno==None:
+        if idno==[]:
             console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(1,userid,password))    
         else:
             console.execute("INSERT INTO details (ID,email,password) values (%s,%s,%s)",(int(idno[0][0])+1,userid,password))
