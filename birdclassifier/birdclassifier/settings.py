@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'birdclassifier.wsgi.application'
 DATABASES = {
     'default': {
         'PASSWORD': os.environ["DATABASE_PASSWORD"],
-        'HOST': os.environ.get("DATABASE_HOST", "localhost"),
+        'HOST': 'vs047-postgres-9300-production',
         'PORT': '3306',
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'database'
