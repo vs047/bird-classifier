@@ -1,5 +1,6 @@
 from django.http import HttpResponse,FileResponse
 from django.shortcuts import render
+import os
 import pandas as pd
 from sklearn.svm import SVC
 from sklearn.preprocessing import StandardScaler
@@ -10,7 +11,7 @@ def menu(request):
 def verification(request):
     userid=request.POST.get("userid")
     password=request.POST.get("password")
-    mydb=mysql.connector.connect(host="localhost",user="root",password="123456789",database="birdlogin")
+    mydb=mysql.connector.connect(host='vs047-postgres-9300-production',user="root",password=os.environ["DATABASE_PASSWORD"],database="database")
     console=mydb.cursor()
     console.execute("SELECT *  FROM details WHERE email=%s and password=%s",(userid,password))
     result=console.fetchall()
@@ -21,7 +22,7 @@ def verification(request):
 def entry(request):
     userid=request.POST.get("userid")
     password=request.POST.get("password")
-    mydb=mysql.connector.connect(host="localhost",user="root",password="123456789",database="birdlogin")
+    mydb=mysql.connector.connect(host='vs047-postgres-9300-production',user="root",password=os.environ["DATABASE_PASSWORD"],database="database")
     console=mydb.cursor()
     console.execute("SELECT * FROM details where email=%s and password=%s",(userid,password))
     result=console.fetchall()
