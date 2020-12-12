@@ -1,8 +1,6 @@
 # bird-classifier
 
-# Important Points
-1-> Please download mysql for accessing this project.If you do not have mysql then you will not be able to access this prject.
-2-> inside dist folder move the birdlogin folder in the path "C:\ProgramData\MySQL\MySQL Server 8.0\Data".
+** Note-> Special thanks to @ theonlyjohnny for guiding me how to live host a database and the website 
 
 this project allows the classification of birds on the basis of length and width of various bones.
 this project is divided into following segments:-
